@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light Simulator</title>
+    <style>
+        .traffic_light{
+            width:100px;
+            height:300px;
+            border:1px solid black;
+            display :flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:space-between;
+            margin-top:50px;
+            margin-left:720px;
+        }
+        .light{
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            margin:10px;
+
+        }
+
+        .red{
+            background-color: red;
+            
+        }
+
+        .yellow{
+            background-color: yellow;
+        }
+
+        .green{
+            background-color: green;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="traffic_light">
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+    </div>
+
+    <script>
+        const redlight=document.querySelector('.red');
+         const yellowlight=document.querySelector('.yellow');
+          const greenlight=document.querySelector('.green');
+
+          function changelights(){
+            setTimeout(()=>{
+                redlight.style.backgroundColor='red';
+                yellowlight.style.backgroundColor='transparent';
+                greenlight.style.backgroundColor='transparent';
+
+                setTimeout(()=>{
+                redlight.style.backgroundColor='transparent';
+                yellowlight.style.backgroundColor='yellow';
+                greenlight.style.backgroundColor='transparent';
+
+
+                setTimeout(()=>{
+                redlight.style.backgroundColor='transparent';
+                yellowlight.style.backgroundColor='transparent';
+                greenlight.style.backgroundColor='green';
+
+                changelights();
+                },2000);
+            },1000);
+
+            },2000);
+          }
+          changelights();
+    </script>
+</body>
+</html>
